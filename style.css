@@ -1,0 +1,118 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100vw;
+      position: relative;
+      font-weight: 100;
+      font-family: Helvetica;
+      background-color: black;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 640px;
+      margin: 4rem auto;
+      box-sizing: border-box;
+      padding: 0 2rem;
+    }
+
+    .content p {
+      font-size: 1.2rem;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      margin-top: 2rem;
+      line-height: 1.2;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    
+    .scene {
+      position: relative;
+    }
+
+    .canvas-parent {
+      width: 100vw;
+      height: 100vh;
+      touch-action: none;
+      position: sticky;
+      top: 0;
+      z-index: -1;
+    }
+
+    canvas {
+      opacity: 0;
+    }
+
+    .scroller {
+      top: 0vh;
+      width: 100vw;
+      height: 800vh;
+      z-index: 2;
+    }
+
+    .caption {
+      background-color: rgba(0,0,0,0.75);
+      padding: 2rem;
+      width: 340px;
+      position: absolute;
+    }
+
+    .caption p {
+      color: white;
+      line-height: 1.5;
+    }
+
+    #c1 {
+      top: 150vh;
+      left: 15vw;
+    }
+    #c2 {
+      top: 300vh;
+      right: 20vw;
+    }
+    #c3 {
+      top: 450vh;
+      left: 20vw;
+    }
+    #c4 {
+      top: 600vh;
+      right: 10vw;
+    }
+
+    @media (max-width: 1024px) {
+      #c1, #c2, #c3, #c4 {
+        right: auto;
+        left: 5rem;
+      }
+    }
+
+    @media (max-width:480px) {
+      #c1, #c2, #c3, #c4 { 
+        width: 100%; 
+        box-sizing: border-box; 
+        left: 0;
+      }
+    }
+
+    #button {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      padding: 12px;
+      border-radius: 50%;
+      margin-bottom: 0px;
+      background-color: #FFF;
+      opacity: .9;
+      z-index: 999;
+      box-shadow: 0 0 4px rgb(0 0 0 / 15%);
+    }
