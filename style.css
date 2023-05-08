@@ -9,8 +9,8 @@
       position: relative;
       font-weight: 100;
       font-family: Helvetica;
-      background-color: black;
-      color: white;
+      background-image: linear-gradient(to bottom, white , #26616E, #303436, white);
+      color: black;
       overflow-x: hidden;
     }
 
