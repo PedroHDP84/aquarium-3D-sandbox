@@ -10,6 +10,7 @@ import {
   Vector3,
   HemisphereLight,
 } from 'three'
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { CameraRig, ScrollControls, ThreeDOFControls } from 'three-story-controls'
 import cameraData from './camera-data.js'
 
@@ -72,35 +73,44 @@ controls3dof.enable()
 const cones = [
   {
     meshPosition: new Vector3(0, 0, -30),
-    color: 0xff0000,
+    fileName: 'AngelFish.glb',
+    scaleFactor: 1
   },
   {
     meshPosition: new Vector3(20, 0, -45),
-    color: 0xffff00,
+    fileName: 'Atolla.glb',
+    scaleFactor: 1
   },
   {
     meshPosition: new Vector3(45, 0, 0),
-    color: 0xff00ff,
+    fileName: 'Baby_Turtule.glb',
+    scaleFactor: 1
   },
   {
     meshPosition: new Vector3(30, 0, 20),
-    color: 0x00ffff,
+    fileName: 'BackwedgedButterflyfish.glb',
+    scaleFactor: 1
   },
   {
     meshPosition: new Vector3(-10, 0, 45),
-    color: 0x00ff00,
+    fileName: 'DevilRay.glb',
+    scaleFactor: 1
   },
   {
     meshPosition: new Vector3(-40, 0, 20),
-    color: 0x0000ff,
+    fileName: 'Dolphin.glb',
+    scaleFactor: 1
   },
 ]
 
-const coneGeo = new ConeGeometry(3, 10, 4)
+const loader = new GLTFLoader().setPath( 'models/' );
+					
 cones.forEach((item) => {
-  const mesh = new Mesh(coneGeo, new MeshPhongMaterial({ color: item.color }))
-  mesh.position.copy(item.meshPosition)
-  scene.add(mesh)
+  loader.load( item.fileName, function ( gltf ) {
+    gltf.scene.position.copy(item.meshPosition)
+    scene.add( gltf.scene );
+  } );
+
 })
 
 function render(t) {
